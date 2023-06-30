@@ -1,0 +1,27 @@
+GET http://localhost:3001/tasks
+
+###
+POST http://localhost:3001/tasks
+Content-Type: application/json
+
+{
+  "title":"Tarea 4",
+  "description":"Descripcion de la tarea 3"
+  }
+
+###
+GET http://localhost:3001/tasks/kZf1hsddBbl-Jlegofa4B
+
+###
+DELETE http://localhost:3001/tasks/g5t2v49q6OUvjNqeeb8Q2
+
+###
+PUT http://localhost:3001/tasks/kZf1hsddBbl-Jlegofa4B
+Content-Type: application/json
+
+{
+  "title":"Tarea 1 actualizada"
+}
+
+###
+GET http://localhost:3001/tasks/count

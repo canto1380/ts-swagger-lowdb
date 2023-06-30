@@ -1,0 +1,77 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Tasks API",
+    "version": "1.0.0",
+    "description": "A simple express library API"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3001"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Tasks",
+      "description": "Tasks endpoint"
+    }
+  ],
+  "paths": {
+    "/tasks": {
+      "get": {
+        "summary": "Returns all Tasks",
+        "tags": ["Tasks"],
+        "responses": {
+          "200": {
+            "description": "the list of tasks",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "$ref": "#/components/schemas/Task"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+
+"components":{
+  "schemas":{
+    "Task": {
+      "type": "object",
+      "required":["title, description"],
+      "properties": {
+        "id":{
+          "type": "string",
+          "description": "the auto-generated id of task"
+        },
+        "title":{
+          "type": "string",
+          "description": "the name of the task"
+        },
+        "description": {
+          "type": "string",
+          "description": "the description of the task"
+        },
+        "completed": {
+          "type": "boolean",
+          "description": "If resolved Task"
+        }
+      },
+
+    "TaskNotFound": {
+      "type": "object",
+      "properties": {
+        "msg": {
+          "type": "string",
+          "description": "A message for the not found task"
+      }
+    }
+    }
+    }
+  }
+}
+}
